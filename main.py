@@ -6,7 +6,8 @@ import requests
 
 
 def main():
-    api_key = 'https://api.themoviedb.org/3/search/movie?api_key=cdf858ef709fd623ee2f4f4befced8aa'
+    key = input('enter your api key: ')
+    api_key = 'https://api.themoviedb.org/3/search/movie?api_key=' + key
     path = pick_folder()
     list = []
     for root, dirs, files in os.walk(path, False):
