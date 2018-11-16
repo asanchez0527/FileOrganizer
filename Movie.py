@@ -8,4 +8,5 @@ class Movie:
 
     def summary(self):
         return ("Name: " + self.name + "\n" + "Release date: " +
-                self.release_date + "\n" + "Description: " + self.description + "\n")
+                self.release_date + "\n" + "Description: " + self.description + "\n"
+                + "Path: " + self.path + "\n")
