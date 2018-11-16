@@ -2,9 +2,21 @@ import tkinter as tk
 from search import search
 import os
 from tkinter import filedialog
+import database.connect
+from sqlite3 import Error
+
 
 
 def main():
+    # try to connect to database else create new database
+    try:
+        conn = database.connect.connect_database('movies.db')
+    except IOError:
+        print('Could not find db file... creating new...')
+
+    cursor = conn.cursor()
+
+
     # initialize vars
     file_list = []
     video_files = []
