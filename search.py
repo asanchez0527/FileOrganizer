@@ -1,12 +1,15 @@
 import requests
-from Movie import Movie
+import os
+from database.does_exist import does_exist
+from get_as_base_64 import get_as_base_64
 
 
 # searches The Movie Database for matches and returns a Movie object
-def search(api_key, name):
+def search(api_key, file, conn):
     # image searching url
     image_url = 'http://image.tmdb.org/t/p/w500'
     # build the query for the api
+    name = os.path.basename(file[:-4])
     query = api_key + '&query=' + name.replace(" ", "+")
     try:
         response = requests.get(query).json()
@@ -15,7 +18,11 @@ def search(api_key, name):
         description = response['results'][0]['overview']
         release_date = response['results'][0]['release_date']
         image = image_url + response['results'][0]['poster_path']
-        movie = Movie(name, movie_id, description, release_date, None, image)
-        return movie
+        path = file
+        movie = (movie_id, name, description, release_date, path, get_as_base_64(image))
+        if does_exist(conn, movie_id):
+            return 1
+        else:
+            return movie
     except IndexError:
         return -1

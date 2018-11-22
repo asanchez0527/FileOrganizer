@@ -3,19 +3,17 @@ from search import search
 import os
 from tkinter import filedialog
 import database.connect
-from sqlite3 import Error
-
+from database.insert_movie import insert_movie
 
 
 def main():
     # try to connect to database else create new database
-    try:
-        conn = database.connect.connect_database('movies.db')
-    except IOError:
-        print('Could not find db file... creating new...')
-
+    conn = database.connect.connect('movies.db')
     cursor = conn.cursor()
-
+    cursor.execute(
+        'CREATE TABLE IF NOT EXISTS Movies (MovieID INTEGER, MovieName STRING,'
+        'Description STRING, ReleaseDate STRING, Path STRING, Image STRING)'
+    )
 
     # initialize vars
     file_list = []
@@ -23,7 +21,7 @@ def main():
     movies = []
 
     # craft api url
-    api_key = 'https://api.themoviedb.org/3/search/movie?api_key=' + input('Enter your api key: ')
+    api_key = 'https://api.themoviedb.org/3/search/movie?api_key=' + input('Enter api key')
 
     # ask user to select the root folder of all their movies
     path = pick_folder()
@@ -42,14 +40,12 @@ def main():
 
     # search for movie using file name and create a Movie object
     for file in video_files:
-        if search(api_key, os.path.basename(file[:-4])) != -1:
-            movie = search(api_key, os.path.basename(file[:-4]))
-            movie.path = file
+        if search(api_key, file) != -1:
+            movie = search(api_key, file, conn)
             movies.append(movie)
 
     # print Movie object
-    for movie in movies:
-        print(movie.summary())
+    insert_movie(conn, movies)
 
 
 # display system dialog for picking folder
