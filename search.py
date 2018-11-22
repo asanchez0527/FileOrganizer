@@ -25,4 +25,5 @@ def search(api_key, file, conn):
         else:
             return movie
     except IndexError:
+        print(name)
         return -1
