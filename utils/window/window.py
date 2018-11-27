@@ -1,14 +1,28 @@
 import tkinter as tk
-import utils.window.Menu
+from utils.window.StartPage import StartPage
 
 
-class MainApplication(tk.Frame):
-    def __init__(self, parent, *args, **kwargs):
-        tk.Frame.__init__(self, parent, *args, **kwargs)
-        self.parent = parent
-        parent.title = 'MovieFlix'
-        self.menu = utils.window.Menu.MenuBar(parent)
-        parent.config(menu=self.menu)
+class MainApplication(tk.Tk):
+    def __init__(self, *args, **kwargs):
+        tk.Tk.__init__(self, *args, **kwargs)
+        container = tk.Frame(self)
+        container.pack(side='top', fill='both', expand=True)
+        container.grid_rowconfigure(0, weight=1)
+        container.grid_columnconfigure(0, weight=1)
+
+        self.frames = {}
+
+        frame = StartPage(container, self)
+
+        self.frames[StartPage] = frame
+
+        frame.grid(row=0, column=0, sticky='nsew')
+
+        self.show_frame(StartPage)
+
+    def show_frame(self, cont):
+        frame = self.frames[cont]
+        frame.tkraise()
 
 
 

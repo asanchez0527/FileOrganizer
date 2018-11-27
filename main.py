@@ -1,16 +1,12 @@
 from utils.window.window import MainApplication
-import tkinter as tk
-import os
 from sys import platform
-
+import os
 
 def main():
-    root = tk.Tk()
-    root.geometry('800x600')
-    MainApplication(root).pack(side='top', fill='both', expand=True)
+    app = MainApplication()
     if platform == 'darwin':
         os.system('''/usr/bin/osascript -e 'tell app "Finder" to set frontmost of process "Python" to true' ''')
-    root.mainloop()
+    app.mainloop()
 
 
 if __name__ == '__main__':
