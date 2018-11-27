@@ -1,17 +1,15 @@
 import tkinter as tk
-from tkinter import Menu
-from utils.file_system.scan_directory import scan_directory
-from sys import exit
+import utils.window.Menu
 
 
-def window():
-    root = tk.Tk()
-    root.title('MovieFlix')
-    menu = Menu(root)
-    file_menu = Menu(menu)
-    file_menu.add_command(label='Scan', command=lambda: scan_directory(root))
-    file_menu.add_separator()
-    file_menu.add_command(label='Exit', command=lambda: exit())
-    menu.add_cascade(label='File', menu=file_menu)
-    root.config(menu=menu)
-    return root
+class MainApplication(tk.Frame):
+    def __init__(self, parent, *args, **kwargs):
+        tk.Frame.__init__(self, parent, *args, **kwargs)
+        self.parent = parent
+        parent.title = 'MovieFlix'
+        self.menu = utils.window.Menu.MenuBar(parent)
+        parent.config(menu=self.menu)
+
+
+
+
