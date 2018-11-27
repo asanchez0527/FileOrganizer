@@ -1,7 +1,7 @@
 import requests
 import os
-from database.does_exist import does_exist
-from get_as_base_64 import get_as_base_64
+from utils.database.does_exist import does_exist
+from utils.search.get_as_base_64 import get_as_base_64
 
 
 # searches The Movie Database for matches and returns a Movie object

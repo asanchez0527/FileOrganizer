@@ -1,9 +1,7 @@
 import tkinter as tk
-from tkinter import *
 from tkinter import Menu
-from scan_directory import scan_directory
+from utils.file_system.scan_directory import scan_directory
 from sys import exit
-import database.get_entries
 
 
 def window():

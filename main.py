@@ -1,5 +1,4 @@
-from window import window
-import database.connect
+from utils.window.window import window
 
 
 def main():

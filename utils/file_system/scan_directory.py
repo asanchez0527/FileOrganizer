@@ -1,14 +1,13 @@
-import tkinter as tk
-from search import search
+from utils.search.search import search
 import os
-import database.connect
-from database.insert_movie import insert_movie
-from pick_folder import pick_folder
+from utils.database.connect import connect
+from utils.database.insert_movie import insert_movie
+from utils.file_system.pick_folder import pick_folder
 
 
 def scan_directory(root):
     # try to connect to database else create new database
-    conn = database.connect.connect('movies.db')
+    conn = connect('movies.db')
     cursor = conn.cursor()
     cursor.execute(
         'CREATE TABLE IF NOT EXISTS Movies (MovieID INTEGER, MovieName STRING,'
