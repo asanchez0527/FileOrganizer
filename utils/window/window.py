@@ -1,8 +1,9 @@
 import tkinter as tk
 from utils.window.StartPage import StartPage
+from utils.window.Menu import MenuBar
 
 
-class MainApplication(tk.Tk):
+class MainMovieApplication(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
         container = tk.Frame(self)
@@ -17,6 +18,9 @@ class MainApplication(tk.Tk):
         self.frames[StartPage] = frame
 
         frame.grid(row=0, column=0, sticky='nsew')
+
+        menu = MenuBar(container)
+        self.config(menu=menu)
 
         self.show_frame(StartPage)
 
