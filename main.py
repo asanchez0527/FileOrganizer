@@ -1,4 +1,4 @@
-from utils.window.window import MainMovieApplication
+from utils.window.MainMovieApplication import MainMovieApplication
 from sys import platform
 import os
 

@@ -1,7 +1,6 @@
 import tkinter as tk
 import utils.database.connect
 from utils.database.get_entries import get_entries
-from utils.database.Movie import Movie
 
 
 class StartPage(tk.Frame):

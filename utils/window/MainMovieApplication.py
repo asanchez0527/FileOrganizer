@@ -1,6 +1,7 @@
 import tkinter as tk
 from utils.window.StartPage import StartPage
 from utils.window.Menu import MenuBar
+from utils.window.SettingsPage import SettingsPage
 
 
 class MainMovieApplication(tk.Tk):
@@ -13,13 +14,12 @@ class MainMovieApplication(tk.Tk):
 
         self.frames = {}
 
-        frame = StartPage(container, self)
+        for F in (StartPage, SettingsPage):
+            frame = F(container, self)
+            self.frames[F] = frame
+            frame.grid(row=0, column=0, sticky='nsew')
 
-        self.frames[StartPage] = frame
-
-        frame.grid(row=0, column=0, sticky='nsew')
-
-        menu = MenuBar(container)
+        menu = MenuBar(container, self)
         self.config(menu=menu)
 
         self.show_frame(StartPage)

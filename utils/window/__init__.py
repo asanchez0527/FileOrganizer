@@ -1,1 +1,1 @@
-__all__ = ['Menu', 'StartPage', 'window']
+__all__ = ['Menu', 'StartPage', 'MainMovieApplication.py']
