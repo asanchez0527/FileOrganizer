@@ -11,7 +11,7 @@ class MainMovieApplication(tk.Tk):
         container.pack(side='top', fill='both', expand=True)
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
-        self.minsize(500,400)
+        self.minsize(800,400)
 
         self.frames = {}
 
