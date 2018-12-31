@@ -20,6 +20,9 @@ def search(api_key, file, conn):
         image = image_url + response['results'][0]['poster_path']
         path = file
         movie = (movie_id, name, description, release_date, path, get_as_base_64(image))
+        temp = requests.get(image).content
+        with open("resources/" + name + ".jpg", "wb") as f:
+            f.write(temp)
         if does_exist(conn, movie_id):
             return 1
         else:

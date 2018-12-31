@@ -1,14 +1,14 @@
-from utils.window.MainMovieApplication import MainMovieApplication
-from sys import platform
-import os
+from utils.window.App import App
+from PyQt5.QtWidgets import QApplication
+import sys
 
 
 def main():
-    app = MainMovieApplication()
-    if platform == 'darwin':
-        os.system('''/usr/bin/osascript -e 'tell app "Finder" to set frontmost of process "Python" to true' ''')
-    app.mainloop()
+    app = QApplication(sys.argv)
+    ex = App()
+    sys.exit(app.exec_())
 
 
 if __name__ == '__main__':
     main()
+

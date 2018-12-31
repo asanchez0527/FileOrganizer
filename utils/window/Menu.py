@@ -1,24 +1,26 @@
-import tkinter as tk
+from PyQt5.QtWidgets import QAction, QMenuBar
 from utils.file_system.scan_directory import scan_directory
-from utils.window.SettingsPage import SettingsPage
-from utils.window.StartPage import StartPage
 
 
-class MenuBar(tk.Menu):
-    def __init__(self, parent, controller):
-        tk.Menu.__init__(self, parent)
-        self.menu_file = tk.Menu(parent, tearoff=False)
-        self.menu_file.label = 'File'
-        self.menu_file.add_command(label='Search', command=lambda: scan_directory(parent))
-        self.menu_file.add_command(label='Quit', command=self.quit)
-        self.menu_settings = tk.Menu(parent, tearoff=False)
-        self.menu_settings.label = 'Settings'
-        self.menu_settings.add_command(label='Settings', command=lambda: controller.show_frame(SettingsPage))
-        self.menu_settings.add_command(label='Home', command=lambda: controller.show_frame(StartPage))
 
-        self.menus = (
-            self.menu_file,
-            self.menu_settings
-        )
-        for menu in self.menus:
-            self.add_cascade(label=menu.label, menu=menu, underline=0)
+class MenuBar(QMenuBar):
+    def __init__(self, parent):
+        super().__init__()
+        QMenuBar.__init__(self, parent)
+
+        file_menu = self.addMenu('&File')
+        exit = QAction("Exit", parent)
+        exit.setShortcut('Ctrl+Q')
+        exit.setStatusTip('Exit application')
+        exit.triggered.connect(parent.close)
+        file_menu.addAction(exit)
+        search = QAction("Search", parent)
+        search.triggered.connect(scan_directory)
+        file_menu.addAction(search)
+
+
+
+        tools_menu = self.addMenu('&Tools')
+        help_menu = self.addMenu('&Help')
+
+

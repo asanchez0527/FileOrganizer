@@ -5,7 +5,7 @@ from utils.database.insert_movie import insert_movie
 from utils.file_system.pick_folder import pick_folder
 
 
-def scan_directory(root):
+def scan_directory():
     # try to connect to database else create new database
     conn = connect('movies.db')
     cursor = conn.cursor()
@@ -24,7 +24,7 @@ def scan_directory(root):
     api_key = 'https://api.themoviedb.org/3/search/movie?api_key=' + key
 
     # ask user to select the root folder of all their movies
-    path = pick_folder(root)
+    path = pick_folder()
 
     # search root directory and all subdirectories for video files and add them to a list
     for root, dirs, files in os.walk(path, False):
