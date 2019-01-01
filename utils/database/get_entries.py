@@ -1,4 +1,4 @@
-from utils.database.Movie import Movie
+from utils.object_model.movie import Movie
 
 
 def get_entries(conn):
