@@ -12,7 +12,6 @@ def search(api_key, file, conn):
     image_url = 'http://image.tmdb.org/t/p/w500'
     # build the query for the api
     name = os.path.basename(file[:-4])
-    query = api_key + '&query=' + name.replace(" ", "+")
 
     # init year var
     year = int()
@@ -23,7 +22,13 @@ def search(api_key, file, conn):
         if temp.isdigit() and 1890 <= int(temp) <= datetime.datetime.now().year:
             name = name.replace(temp, "")
             year = temp
+        elif temp.isdigit() and int(temp) > 11:
+            name = name.replace(temp, "")
 
+    # create query
+    query = api_key + '&query=' + name.replace(" ", "+")
+
+    # parse movie object from json
     try:
         response = requests.get(query).json()
         movie_id = response['results'][0]['id']
@@ -32,14 +37,22 @@ def search(api_key, file, conn):
         release_date = response['results'][0]['release_date']
         image = image_url + response['results'][0]['poster_path']
         path = file
-        movie = (movie_id, name, description, release_date, path, get_as_base_64(image))
         temp = requests.get(image).content
+        image = str()
 
+        # check if movie_posters folder exists, else create folder
         if not os.path.exists('movie_posters'):
             os.mkdir('movie_posters')
 
+        # write image to disk
         with open("movie_posters/" + name + ".jpg", "wb") as f:
             f.write(temp)
+            image = "movie_posters/" + name + ".jpg"
+
+        # create movie object
+        movie = (movie_id, name, description, release_date, path, image)
+
+    # check if movie exists
         if does_exist(conn, movie_id):
             return 1
         else:

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef8ebf43-b6f6-4e8d-aea0-44e058131071" name="Default Changelist" comment="">
+    <list default="true" id="ef8ebf43-b6f6-4e8d-aea0-44e058131071" name="Default Changelist" comment="clean up logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/search/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/search/search.py" afterDir="false" />
     </list>
@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/search/search.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+            <state relative-caret-position="312">
+              <caret line="54" column="27" lean-forward="true" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -26,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/file_system/scan_directory.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="750">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -88,8 +88,8 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/utils/window/Menu.py" />
         <option value="$PROJECT_DIR$/utils/database/get_entries.py" />
-        <option value="$PROJECT_DIR$/utils/search/search.py" />
         <option value="$PROJECT_DIR$/utils/file_system/scan_directory.py" />
+        <option value="$PROJECT_DIR$/utils/search/search.py" />
       </list>
     </option>
   </component>
@@ -131,7 +131,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546323860532" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546325657703" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -376,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546321005803</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="clean up logic">
+      <created>1546323908653</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1546323908653</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -400,7 +407,7 @@
       <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.35121602" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.52217454" side_tool="true" weight="0.42200556" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.52217454" side_tool="true" visible="true" weight="0.42200556" />
       <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.4985694" weight="0.3272727" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
@@ -474,7 +481,8 @@
     <MESSAGE value="continue work on tkinter gui" />
     <MESSAGE value="make images clickable buttons" />
     <MESSAGE value="Transition from tkinter to qt5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Transition from tkinter to qt5" />
+    <MESSAGE value="clean up logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean up logic" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test.py" />
@@ -664,22 +672,22 @@
     <entry file="file://$PROJECT_DIR$/movie_posters/Misery.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/search/search.py">
+    <entry file="file://$PROJECT_DIR$/utils/file_system/scan_directory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+        <state relative-caret-position="750">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/file_system/scan_directory.py">
+    <entry file="file://$PROJECT_DIR$/utils/search/search.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="312">
+          <caret line="54" column="27" lean-forward="true" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
